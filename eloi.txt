@@ -1,0 +1,186 @@
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+int Menu(void);
+void Ajouter(void);
+void Afficher(void);
+void Supprimer(void);
+int Nombre_Etudiant(void);
+
+struct Etudiant{
+int numero_etudiant;
+char nom[30],prenom[30];
+char classe[10];
+double pourcentage;
+struct Etudiant * suivant;
+};
+struct Etudiant * head;
+int numero=0;
+
+int main()
+{
+   int choix;
+
+int mot_passe_1 = 1234;
+int mot_passe_2;
+
+ do{
+     system("color 0a");
+     printf("ENTREZ LE MOT DE PASSE : ");
+     scanf("%d",&mot_passe_2);
+     if(mot_passe_1!=mot_passe_2) printf("LE MOT DE PASSE INCORRECT\n");
+
+   }while(mot_passe_1!=mot_passe_2);
+   system("cls");
+   system("color 0a");
+
+
+
+   while(1){
+    choix = Menu();
+    if(choix>=1 && choix<=5)
+       switch(choix){
+
+       case 1:
+              Ajouter();
+       break;
+       case 2:
+              Afficher();
+       break;
+       case 3:
+              Supprimer();
+       break;
+       case 4:
+              exit(1);
+       break;
+
+       }
+    else
+       printf("%d NE FIGURE PAS SUR LE MENU\n",choix);
+
+   }
+    return 0;
+}
+//FONCTION QUI AFFICHE LE MENU
+int Menu(){
+printf("=======================================\n");
+printf("                   MENU                 \n");
+printf("=========================================\n");
+printf("1.AJOUTER\n");
+printf("2.AFFICHER\n");
+printf("3.SUPPRIMER\n");
+printf("4.QUITTER\n");
+printf("VEUILLLEZ FAIRE VOTRE CHOIX: => ");
+int choix;
+scanf("%d",&choix);
+system("cls");
+return choix;
+}
+
+//LA FONCTION POUR AJOUTER LES INFORMATIONS DES ETUDIANTS
+void Ajouter(){
+       struct Etudiant *temp;
+       temp = (struct Etudiant *) malloc(sizeof(struct Etudiant));
+       system("cls");
+       printf("ENTREZ LES INFORMATIONS DE L'ETUDIANT\n");
+       printf("==========================================\n");
+       temp->numero_etudiant = ++numero;
+       printf("ENTREZ LE NOM: ");
+       scanf("%s",temp->nom);
+       printf("ENTREZ LE PRENOM: ");
+       scanf("%s",temp->prenom);
+       printf("ENTREZ LA CLASSE: ");
+       scanf("%s",temp->classe);
+       printf("ENTREZ LE POURCENTAGE: ");
+       scanf("%lf",&temp->pourcentage);
+       temp->suivant = NULL;
+       if(head==NULL)
+          head = temp;
+       else{
+              struct Etudiant *p;
+              p = head;
+              while(p->suivant!=NULL)
+                     p = p->suivant;
+              p->suivant = temp;
+       }
+
+       system("cls");
+}
+//LA FONCTION POUR AFFICHER LES INFORMATIONS DES ETUDIANTS
+void Afficher(){
+struct Etudiant *temp;
+temp = head;
+system("cls");
+if(temp==NULL)
+       printf("LA LISTE EST VIDE\n");
+else{
+       while(temp!=NULL){
+              printf("====================================\n");
+              printf("NO : %d\n",temp->numero_etudiant);
+              printf("NOM: %s\n",temp->nom);
+              printf("PRENOM: %s\n",temp->prenom);
+              printf("CLASSE: %s\n",temp->classe);
+              printf("POURCENTAGE:%.2lf\n",temp->pourcentage);
+              printf("====================================\n");
+              temp = temp->suivant;
+       }
+}
+printf("APPUYE SUR N'IMPORTE QUEL BUTTON POUR CONTINUER\n");
+system("pause>0");
+system("cls");
+
+}
+
+//LA FONCTION DE LA SUPPRESSION
+void Supprimer(){
+//INSTRUCTIONS POUR LA SUPPRESSION
+int position,i;
+struct Etudiant *p,*q;
+
+system("cls");
+printf("DE QUELLE POSITION VOUS VOULEZ SUPPRIMER? ");
+scanf("%d",&position);
+system("cls");
+if(head==NULL)
+       printf("LA SUPPRESSION IMPOSSIBLE CAR LA LISTE EST VIDE\n");
+else if(position>Nombre_Etudiant())
+       printf("SUPPRESSION IMPOSSIBLE CAR IL Y A %d ETUDIANT%c\n"
+              ,Nombre_Etudiant(),(Nombre_Etudiant()==0 || Nombre_Etudiant()==1) ?
+              ' ':'S');
+else if(position==1){
+  p = head;
+  free(p);
+  head = NULL;
+}
+else{
+
+       p = head;
+       i=1;
+       while(i<position-1){
+         p = p->suivant;
+         i++;
+       }
+       q = p->suivant;
+       p->suivant = q->suivant;
+       q->suivant = NULL;
+       free(q);
+ }
+}
+
+//LA FONCTION DE VOIR LE NOMBRE DES ETUDIANT DANS LA LISTE
+int Nombre_Etudiant(){
+int nombre_etudiants=0;
+struct Etudiant *temp;
+temp = head;
+
+  while(temp!=NULL){
+    nombre_etudiants++;
+    temp = temp->suivant;
+  }
+ return nombre_etudiants;
+
+}
+

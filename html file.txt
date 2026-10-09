@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <div>ICONE</div>
+            <div class="nav-link">
+                <a href="#">Home</a>
+                <a href="#">About us</a>
+                <a href="#">Our courses</a>
+                <a href="#">Page layouts</a>
+                <a href="#">Our Team</a>
+                <a href="#">Blogs</a>
+                <a href="#">Shortcooks</a>
+                <a href="#">Shop</a>
+                <a href="#">Contact Us</a>
+            </div>
+
+            <div>LOGO</div>
+        </header>
+
+        <div class="heading-text">
+            <p> you need any help you?</p>
+            <p class="cls2">WELCOME TO OUR <br/> UNIVERSITY</p>
+            <button class="contact">learn more</button>
+        </div>  
+        <div class="part">   
+            <div class="text-part1">
+                  <p> busness courses <br/><span class="little"> learn more</span></p>
+            </div>
+      
+             
+            <div class="text-part2">
+                  <p> travel & toursem <br/><span class="little"> learn more</span></p>
+            </div>
+
+
+            <div class="text-part3">
+                  <p> fashion courses <br/><span class="little"> learn more</span></p>
+            </div>
+        </div>
+            <aside>
+                <div class="pic">
+                    <div class="pic1">
+                       <img src="img2.jpg" width="200px" height="100px"/>
+                       <p class="para1">Master of business <br/> adiministration (CMI)</p>
+                       <p class="para2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore esse doloribus ut commodi quidem. Ut, sequi inventore nostrum autem odit consequuntur laboriosam, a delectus minus dolor, et tempore rem modi!</p>
+                       <button class="contact1">learn more</button>
+                    </div>
+    
+                    <div class="pic2">
+                       <img src="img3.jpg" width="200px" height="100px"/>
+                       <p class="par1">Human ressource management</p>
+                       <p class="par2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore esse doloribus ut commodi quidem. Ut, sequi inventore nostrum autem odit consequuntur laboriosam, a delectus minus dolor, et tempore rem modi!</p>
+                       <button class="contact2">learn more</button>
+                    </div>
+    
+                    <div class="pic3">
+                        <img src="img1.jpg" width="200px" height="100px"/>
+                        <p class="parat1">Msc telecommunication <br/> management</p>
+                        <p class="parat2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore esse doloribus ut commodi quidem. Ut, sequi inventore nostrum autem odit consequuntur laboriosam, a delectus minus dolor, et tempore rem modi!</p>
+                        <button class="contact3">learn more</button>
+                    </div>
+                </div>
+            </aside>
+
+    </div>
+
+</body>
+</html>
